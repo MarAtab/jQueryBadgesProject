@@ -4,7 +4,7 @@ $(function() {
   dataType:'jsonp',
 
   success: function(response) {
-  addCourses(response.courses.completed);
+  addCourses(response.courses);
   }
 });
 function addCourses(courses) {
