@@ -4,8 +4,6 @@ $(function() {
   dataType:'jsonp',
 
   success: function(response) {
-
-  console.log('response', response.courses.completed);
   addCourses(response.courses.completed);
   }
 });
@@ -27,7 +25,7 @@ function addCourses(courses) {
     'class': 'btn btn-primary',
     target: '_blank',
     href: course.url,
-    text: 'See Course'  
+    text: 'See Course'
   }).appendTo($course);
   })
 }
