@@ -1,13 +1,35 @@
-$.ajax({
-  url: 'https://www.codeschool.com/users/MarAtab',
-  dataType:'jsonp'
-  /*complete: function (){
-    alert(this.url)
+$(function() {
+  $.ajax({
+  url: 'https://www.codeschool.com/users/MarAtab.json',
+  dataType:'jsonp',
 
-  },*/
   success: function(response) {
 
-    response = {courses: completed=["The Cliffs of Value","Variable Valley","Files Falls","The Labyrinth of Loops","Conditional Canyon"]};
-
+  console.log('response', response.courses.completed);
+  addCourses(response.courses.completed);
   }
+});
+function addCourses(courses) {
+  var $badges = $('#badges');
+  courses.forEach(function(course) {
+  var $course = $('<div />', {'class': 'course'
+  }).appendTo($badges);
+
+  $('<h3 />', {
+    text: course.title
+  }).appendTo($course);
+
+  $('<img />', {
+    src: course.badge
+  }).appendTo($course);
+
+  $('<a />',{
+    'class': 'btn btn-primary',
+    target: '_blank',
+    href: course.url,
+    text: 'See Course'  
+  }).appendTo($course);
+  })
+}
+
 });
