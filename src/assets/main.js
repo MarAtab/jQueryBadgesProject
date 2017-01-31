@@ -9,7 +9,7 @@ $(function() {
 });
 function addCourses(courses) {
   var $badges = $('#badges');
-  courses.completed.forEach(function(course) {
+  courses.forEach(function(course) {
   var $course = $('<div />', {'class': 'course'
   }).appendTo($badges);
 
